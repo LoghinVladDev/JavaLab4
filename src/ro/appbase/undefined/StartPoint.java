@@ -1,7 +1,0 @@
-package ro.appbase.undefined;
-
-public class StartPoint {
-    public static void main(String[] args){
-        System.out.println("Project 4");
-    }
-}
