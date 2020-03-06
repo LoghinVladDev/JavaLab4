@@ -1,0 +1,111 @@
+@startuml
+
+
+abstract class Element
+
+class Hospital extends Element
+class Resident extends Element
+
+class Problem
+class Matching
+class Partition
+class Element
+class Solution
+class GaleShapely implements Algorithm
+
+interface Algorithm
+
+Resident "1" o-- "1..." Hospital : prefers
+Hospital "1" o-- "1..." Resident : prefers
+
+Problem "1" *-- "1..." Resident : contains
+Problem "1" *-- "1..." Hospital : contains
+
+Problem "1" o-- "1..." Solution : has
+Problem "1" o-- "2" Partition : has
+
+Solution "1" o-- "1" Matching : has
+
+Problem "1" *-- "1" GaleShapely
+
+GaleShapely "1" *-- "1..." Solution : generates
+GaleShapely "1" *-- "1..." Matching : creates
+
+Partition "1" o-- "1..." Element
+
+class Solution{
+    Matching matching
+}
+
+class Matching{
+    Set<Pair<Element, Element>> pairs
+}
+
+class Partition{
+    Set<Element> object
+}
+
+class Resident{
+    SortedSet<Hospital> preferences
+    Hospital assignedHospital
+}
+
+class Hospital{
+    Integer residentCapacity
+    SortedSet<Resident> preferences
+    Set<Resident> assignedResidents
+}
+
+abstract class Element{
+    Integer preference
+    String name
+    boolean isFree()
+    int getCapacity()
+    void assignTo()
+    void free()
+}
+
+class Problem{
+    Partition s
+    Partition t
+    ArrayList<Resident> residents
+    TreeSet<Hospital> hospitals
+    Solution solution
+    GaleShapely algorithm
+}
+
+class GaleShapely{
+    Problem problem
+}
+
+interface Algorithm{
+    double getRuntime()
+    void assignProblem()
+    Solution generateSolution()
+}
+
+@enduml
+
+
+abstract class AbstractList
+abstract AbstractCollection
+interface List
+interface Collection
+
+List <|-- AbstractList
+Collection <|-- AbstractCollection
+
+Collection <|- List
+AbstractCollection <|- AbstractList
+AbstractList <|-- ArrayList
+
+class ArrayList {
+Object[] elementData
+size()
+}
+
+enum TimeUnit {
+DAYS
+HOURS
+MINUTES
+}

@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9140d316-5a17-4506-b662-5cbeb42e10f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaLab4.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/StartPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ro/appbase/HRUML.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ro/appbase/HRUML.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ro/appbase/object/Hospital.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ro/appbase/object/Resident.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ro/appbase/utiltiy/algorithm/Algorithm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ro/appbase/utiltiy/concept/Problem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ro/appbase/utiltiy/graph/Matching.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ro/appbase/utiltiy/graph/Partition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StartPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ro/appbase/undefined/StartPoint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +26,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
+        <option value="UML Class" />
       </list>
     </option>
   </component>
@@ -31,21 +39,27 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1YlUjvNvolFQxzVCK3RDQHZDUPv" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultPlantUmlFileTemplate" value="UML Class" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
     <configuration name="StartPoint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="StartPoint" />
+      <option name="MAIN_CLASS_NAME" value="ro.appbase.undefined.StartPoint" />
       <module name="JavaLab4" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -68,16 +82,65 @@
       <option name="presentableId" value="Default" />
       <updated>1583516812327</updated>
     </task>
+    <task id="LOCAL-00001" summary="Intial Commit">
+      <created>1583516899386</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1583516899386</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Intial Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Intial Commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Project_Structure" timestamp="1583516821088">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Project_Structure/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583516821088" />
-    <state x="614" y="114" key="CommitChangelistDialog2" timestamp="1583516856164">
+    <state x="614" y="114" key="CommitChangelistDialog2" timestamp="1583516898540">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="614" y="114" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583516856164" />
+    <state x="614" y="114" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583516898540" />
+    <state x="740" y="246" key="FileChooserDialogImpl" timestamp="1583526433782">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="246" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583526433782" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1583516900343">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583516900343" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1583516900343">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583516900343" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1583516900343">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583516900343" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1583516900343">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583516900343" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1583525494592">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583525494592" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1583529089100">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583529089100" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1583525287472">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583525287472" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1583527472311">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583527472311" />
   </component>
 </project>
