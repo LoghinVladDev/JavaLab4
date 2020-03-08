@@ -1,6 +1,5 @@
 package ro.appbase.object;
 
-import java.sql.PreparedStatement;
 import java.util.*;
 
 public abstract class Element {
@@ -20,14 +19,8 @@ public abstract class Element {
         return this.tryouts;
     }
 
-    public abstract void assignTo();
-
     public Set<Element> getAssignedTo(){
         return this.assignedTo;
-    }
-
-    public boolean hasNotBeenTried(Element obj){
-        return !this.tryouts.contains(obj);
     }
 
     public void free(){
@@ -35,8 +28,6 @@ public abstract class Element {
         this.assignedTo.clear();
         //System.out.println("AFTER " + this.assignedTo.toString());
     }
-
-    public abstract boolean isFree();
 
     public boolean canAssign(){
         return this.assignedTo.size() < this.getCapacity();

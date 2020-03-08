@@ -16,12 +16,11 @@ public class Problem {
     private Partition t;
     private List<Resident> residents;
     private Set<Hospital> hospitals;
-    private Solution solution;
     private Algorithm algorithm;
 
     public static class Builder {
         private List<Resident> residents;
-        private TreeSet<Hospital> hospitals;
+        private Set<Hospital> hospitals;
 
         public Builder withHospitals(Hospital ... hospitals){
             this.hospitals = new TreeSet<>(Comparator.comparing(Element::getName));

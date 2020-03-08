@@ -1,26 +1,14 @@
 package ro.appbase.object;
 
-import javafx.beans.binding.IntegerExpression;
-
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Hospital extends Element {
     private Map<Integer, Resident> preferences;
 
     public Hospital(String name, int capacity){
         super(name, capacity);
-    }
-
-    @Override
-    public void assignTo() {
-
-    }
-
-    @Override
-    public boolean isFree() {
-        return false;
     }
 
     @Override
@@ -49,12 +37,12 @@ public class Hospital extends Element {
 
     @Override
     public Element getNextTryout() {
-        return this.preferences
+        return Objects.requireNonNull(this.preferences
                 .entrySet()
                 .stream()
-                .filter(e -> !this.tryouts.contains(e))
+                .filter(e -> !this.tryouts.contains(e.getValue()))
                 .findFirst()
-                .orElse(null)
+                .orElse(null))
                 .getValue();
     }
 

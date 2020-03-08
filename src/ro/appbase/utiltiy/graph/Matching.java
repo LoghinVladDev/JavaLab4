@@ -2,12 +2,9 @@ package ro.appbase.utiltiy.graph;
 
 import javafx.util.Pair;
 import ro.appbase.object.Element;
-import ro.appbase.utiltiy.concept.Problem;
 
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 public class Matching {
     private Set<Pair<Element, Element>> edges;

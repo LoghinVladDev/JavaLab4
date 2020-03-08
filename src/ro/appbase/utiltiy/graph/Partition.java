@@ -4,8 +4,10 @@ import ro.appbase.object.Element;
 import ro.appbase.object.Hospital;
 import ro.appbase.object.Resident;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Partition {
     Set<Element> V;

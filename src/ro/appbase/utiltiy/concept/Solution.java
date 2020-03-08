@@ -4,17 +4,11 @@ import javafx.util.Pair;
 import ro.appbase.object.Element;
 import ro.appbase.utiltiy.graph.Matching;
 
-import java.util.StringTokenizer;
-
 public class Solution {
     private Matching matching;
 
     public Solution(Matching matching){
         this.matching = matching;
-    }
-
-    public Matching getMatching() {
-        return this.matching;
     }
 
     public String toString(){

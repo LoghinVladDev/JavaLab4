@@ -1,12 +1,11 @@
 package ro.appbase;
 
-import javafx.util.Builder;
 import ro.appbase.object.Hospital;
 import ro.appbase.object.Resident;
 import ro.appbase.utiltiy.concept.Problem;
 import ro.appbase.utiltiy.concept.Solution;
 
-import java.util.Map;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 public class StartPoint {
@@ -51,11 +50,11 @@ public class StartPoint {
 
         p.getHospitals()
                 .stream()
-                .filter(h -> h.getPreferences()
+                .filter(h -> Objects.requireNonNull(h.getPreferences()
                         .entrySet()
                         .stream()
                         .findFirst()
-                        .get()
+                        .orElse(null))
                         .getValue()
                         .equals(residents[0]))
                 .forEach(System.out::println);

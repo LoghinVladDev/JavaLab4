@@ -1,14 +1,11 @@
 package ro.appbase.object;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.SortedSet;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class Resident extends Element {
 
-    protected Map<Integer, Hospital> preferences;
+    private Map<Integer, Hospital> preferences;
 
     public Resident(String name){
         super(name, 1);
@@ -18,16 +15,6 @@ public class Resident extends Element {
     public String toString(){
         return "Resident "
                 + this.name;
-    }
-
-    @Override
-    public void assignTo() {
-
-    }
-
-    @Override
-    public boolean isFree() {
-        return false;
     }
 
     @Override
@@ -48,15 +35,16 @@ public class Resident extends Element {
 
     @Override
     public Element getNextTryout() {
-        return this.preferences
+        return Objects.requireNonNull(this.preferences
                 .entrySet()
                 .stream()
                 .filter(e -> !this.tryouts.contains(e.getValue()))
                 .findFirst()
-                .orElse(null)
+                .orElse(null))
                 .getValue();
     }
 
+    @Override
     public Element getLeastAppealingAssignee() {
         //System.out.println("...Start find worst match debug");
         Element leastAppealing = null;
@@ -72,6 +60,7 @@ public class Resident extends Element {
         return leastAppealing;
     }
 
+    @Override
     public int getPreference(Element obj){
         for(Integer key : this.preferences.keySet()){
             if( this.preferences.get(key).equals(obj) )

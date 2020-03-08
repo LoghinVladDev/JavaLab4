@@ -12,8 +12,11 @@ class Partition
 class Element
 class Solution
 class GaleShapely implements Algorithm
+class Builder
 
 interface Algorithm
+
+Builder +-- Problem
 
 Resident "1" o-- "1..." Hospital : prefers
 Hospital "1" o-- "1..." Resident : prefers
@@ -34,54 +37,107 @@ GaleShapely "1" *-- "1..." Matching : creates
 Partition "1" o-- "1..." Element
 
 class Solution{
-    Matching matching
+    Matching matching : private
+    Solution(Matching) : public
+    String toString() : public
 }
 
 class Matching{
-    Set<Pair<Element, Element>> pairs
+    Set<Pair<Element, Element>> edges : private
+    Matching() : public
+    void addEdge(Element, Element) : public
+    Matching addAllEdges(Partition) : public
+    Set<Pair<Element, Element>> getEdges() : public
 }
 
 class Partition{
-    Set<Element> object
+    Set<Element> V : private
+    Partition(Set<Hospital>) : public
+    Partition(List<Resident>) : public
+    Set<Element> getV() : public
+    String toString() : public
 }
 
 class Resident{
-    SortedSet<Hospital> preferences
-    Hospital assignedHospital
+    Map<Integer, Hospital> preferences : private
+    Resident(String) : public
+    void setPreferences(Hospital ...) : public
 }
 
 class Hospital{
-    Integer residentCapacity
-    SortedSet<Resident> preferences
-    Set<Resident> assignedResidents
+    Map<Integer, Resident> preferences : private
+
+    Hospital(String, Integer) : public
+    void setPreferences(Resident ...) : public
 }
 
 abstract class Element{
-    Integer preference
-    String name
-    boolean isFree()
-    int getCapacity()
-    void assignTo()
-    void free()
+    Integer capacity : protected
+    String name : protected
+    Set<Element> assignedTo : protected
+    Set<Element> tryouts : protected
+
+    Element(String, Integer) : protected
+    Set<Element> getTryouts() : public
+    Set<Element> getAssignedTo() : public
+    void free() : public
+    boolean canAssign() : public
+    void assign() : public
+    String getName() : public
+    boolean equals(Element) : public
+
+    Integer getCapacity() : public abstract
+    Map<Integer, ?> getPreferences() : public abstract
+    String toString() : public abstract
+    Element getNextTryout() : public abstract
+    Element getLeastAppealingAssignee() : public abstract
+    Integer getPreference() : public abstract
 }
 
 class Problem{
-    Partition s
-    Partition t
-    ArrayList<Resident> residents
-    TreeSet<Hospital> hospitals
-    Solution solution
-    GaleShapely algorithm
+    Partition s : private
+    Partition t : private
+    ArrayList<Resident> residents : private
+    TreeSet<Hospital> hospitals : private
+    GaleShapely algorithm : private
+
+    Problem() : private
+    List<Resident> getResidents() : public
+    Set<Hospital> getHospitals() : public
+    String toString() : public
+    void printPreferences() : public
+    void printResidentsPreferences() : public
+    void printHospitalsPreferences() : public
+    String preferencesToString() : private
+    String residentsPreferencesToString() : private
+    String hospitalsPreferencesToString() : private
+    Partition getS() : public
+    Partition getT() : public
+    Algorithm getAlgorithm() : public
+}
+
+class Builder{
+    List<Resident> residents : private
+    Set<Hospital> hospitals : private
+
+    Builder withHospitals(Hospital ...) : public
+    Builder withResidents(Resident ...) : public
+    Problem build() : public
 }
 
 class GaleShapely{
-    Problem problem
+    Problem p : private
+    long startTime : private
+    long finishTime : private
+
+    GaleShapely(Problem) : public
 }
 
 interface Algorithm{
+    void start()
+    Solution getSolution()
+    long getNanoRuntime()
     double getRuntime()
-    void assignProblem()
-    Solution generateSolution()
 }
 
 @enduml
