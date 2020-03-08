@@ -4,6 +4,10 @@ import javafx.util.Builder;
 import ro.appbase.object.Hospital;
 import ro.appbase.object.Resident;
 import ro.appbase.utiltiy.concept.Problem;
+import ro.appbase.utiltiy.concept.Solution;
+
+import java.util.Map;
+import java.util.function.Predicate;
 
 public class StartPoint {
     public static void main(String[] args){
@@ -34,6 +38,41 @@ public class StartPoint {
                 .withResidents(residents)
                 .build();
 
-        p.printPreferences();
+        //p.printPreferences();
+
+        Predicate<Resident> findsAcceptableH0 = r-> r.getPreferences()
+                .containsValue(hospitals[2]);
+        Predicate<Resident> findsAcceptableH2 = r-> r.getPreferences()
+                .containsValue(hospitals[0]);
+        p.getResidents().stream()
+            .filter(findsAcceptableH0.and(findsAcceptableH2))
+            .forEach(System.out::println);
+
+
+        p.getHospitals()
+                .stream()
+                .filter(h -> h.getPreferences()
+                        .entrySet()
+                        .stream()
+                        .findFirst()
+                        .get()
+                        .getValue()
+                        .equals(residents[0]))
+                .forEach(System.out::println);
+
+        System.out.println(p);
+        System.out.println(p.getS());
+        System.out.println(p.getT());
+
+        try{
+            p.getAlgorithm().start();
+        }
+        catch(InterruptedException e){
+            System.out.println(e.toString());
+        }
+
+        Solution s = p.getAlgorithm().getSolution();
+
+        System.out.println(s);
     }
 }

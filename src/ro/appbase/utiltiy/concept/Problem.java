@@ -5,9 +5,11 @@ import ro.appbase.object.Element;
 import ro.appbase.object.Hospital;
 import ro.appbase.object.Resident;
 import ro.appbase.utiltiy.algorithm.Algorithm;
+import ro.appbase.utiltiy.algorithm.GaleShapely;
 import ro.appbase.utiltiy.graph.Partition;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Problem {
     private Partition s;
@@ -18,7 +20,7 @@ public class Problem {
     private Algorithm algorithm;
 
     public static class Builder {
-        private ArrayList<Resident> residents;
+        private List<Resident> residents;
         private TreeSet<Hospital> hospitals;
 
         public Builder withHospitals(Hospital ... hospitals){
@@ -41,6 +43,9 @@ public class Problem {
 
             problem.hospitals = this.hospitals;
             problem.residents = this.residents;
+            problem.t = new Partition(this.hospitals);
+            problem.s = new Partition(this.residents);
+            problem.algorithm = new GaleShapely(problem);
 
             return problem;
         }
@@ -62,7 +67,9 @@ public class Problem {
         return "Problem instance : \nResidents = "
                 + this.residents.toString()
                 + "\nHospitals = "
-                + this.hospitals.toString();
+                + this.hospitals.toString()
+                + "\nAnd preferences : \n"
+                + this.preferencesToString();
     }
 
     public void printPreferences(){
@@ -82,5 +89,35 @@ public class Problem {
             System.out.print(hospital.getPreferences().toString());
             System.out.print("\n");
         }
+    }
+
+    private String preferencesToString(){
+        return this.residentsPreferencesToString() + this.hospitalsPreferencesToString();
+    }
+
+    private String residentsPreferencesToString(){
+        StringBuilder result = new StringBuilder();
+        for(Resident resident : this.residents)
+            result.append(resident.getPreferences().toString()).append("\n");
+        return result.toString();
+    }
+
+    private String hospitalsPreferencesToString(){
+        StringBuilder result = new StringBuilder();
+        for(Hospital hospital : this.hospitals)
+            result.append(hospital.getPreferences().toString()).append("\n");
+        return result.toString();
+    }
+
+    public Partition getS() {
+        return this.s;
+    }
+
+    public Partition getT() {
+        return this.t;
+    }
+
+    public Algorithm getAlgorithm(){
+        return this.algorithm;
     }
 }

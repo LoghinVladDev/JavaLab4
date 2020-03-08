@@ -26,18 +26,13 @@ public class Resident extends Element {
     }
 
     @Override
-    public void free() {
-
-    }
-
-    @Override
     public boolean isFree() {
         return false;
     }
 
     @Override
     public int getCapacity() {
-        return 0;
+        return 1;
     }
 
     public void setPreferences(Hospital ... preferences){
@@ -49,5 +44,39 @@ public class Resident extends Element {
     @Override
     public Map<Integer, ?> getPreferences() {
         return this.preferences;
+    }
+
+    @Override
+    public Element getNextTryout() {
+        return this.preferences
+                .entrySet()
+                .stream()
+                .filter(e -> !this.tryouts.contains(e.getValue()))
+                .findFirst()
+                .orElse(null)
+                .getValue();
+    }
+
+    public Element getLeastAppealingAssignee() {
+        //System.out.println("...Start find worst match debug");
+        Element leastAppealing = null;
+        for(Element pair : this.preferences.values()){
+            //System.out.println(this);
+            //System.out.println(pair);
+            if(this.assignedTo.contains(pair)){
+                leastAppealing = pair;
+                //System.out.println(pair);
+            }
+        }
+        //System.out.println("...End find worst match debug");
+        return leastAppealing;
+    }
+
+    public int getPreference(Element obj){
+        for(Integer key : this.preferences.keySet()){
+            if( this.preferences.get(key).equals(obj) )
+                return key;
+        }
+        return Integer.MAX_VALUE;
     }
 }

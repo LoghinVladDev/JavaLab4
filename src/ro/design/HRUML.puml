@@ -22,7 +22,7 @@ Problem "1" *-- "1..." Resident : contains
 Problem "1" *-- "1..." Hospital : contains
 
 Problem "1" o-- "1..." Solution : has
-Problem "1" o-- "2" Partition : has
+Problem "1" *-- "2" Partition : creates
 
 Solution "1" o-- "1" Matching : has
 
